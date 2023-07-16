@@ -22,30 +22,35 @@ $(function () {
   // useful when saving the description in local storage?
   saveButton.click(function() {
     if(this.id == 'btn9'){
-      hour9.attr(
-        'style',
-        'background-color: blue'
-      )
+      if (hour9txt.value == '') {
+        alert('Nothing to save');
+      } else {
+        localStorage.setItem('hour9txt', hour9txt.value);
+      }
     } else if (this.id == 'btn10') {
-      hour10.attr(
-        'style',
-        'background-color: green'
-      )
+      if (hour10txt.value == '') {
+        alert('Nothing to save');
+      } else {
+        localStorage.setItem('hour10txt', hour10txt.value);
+      }
     } else if (this.id == 'btn11') {
-      hour11.attr(
-        'style',
-        'background-color: yellow'
-      )
+      if (hour11txt.value == '') {
+        alert('Nothing to save');
+      } else {
+        localStorage.setItem('hour11txt', hour11txt.value);
+      }
     } else if (this.id == 'btn12') {
-      hour12.attr(
-        'style',
-        'background-color: white'
-      )
+      if (hour12txt.value == '') {
+        alert('Nothing to save');
+      } else {
+        localStorage.setItem('hour12txt', hour12txt.value);
+      }
     } else if (this.id == 'btn13') {
-      hour13.attr(
-        'style',
-        'background-color: orange'
-      )
+      if (hour13txt.value == '') {
+        alert('Nothing to save');
+      } else {
+        localStorage.setItem('hour13txt', hour13txt.value);
+      }
     } else if (this.id == 'btn14') {
       hour14.attr(
         'style',
@@ -78,6 +83,14 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
+render();
+
+function render() {
+  var text = localStorage.getItem('hour9txt');
+
+  $("#hour9txt").text(text);
+}
+  
   //
   // TODO: Add code to display the current date in the header of the page.
   currentDayEl.text(currentDay);
