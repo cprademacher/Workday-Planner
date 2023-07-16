@@ -18,7 +18,6 @@ Users simply need to click on the time-box they want to enter a task for, type w
 
 ![Screenshot](/Assets/Screenshot.png)
 
-
 ## Credits
 
 Source code came from the UT Coding Bootcamp Staff
@@ -28,4 +27,4 @@ I used chatgpt to ask it how to render text in an element, and then make that te
 
 ## Link to deployed application
 
-
+https://cprademacher.github.io/Workday-Planner/
