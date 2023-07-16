@@ -22,55 +22,23 @@ $(function () {
   // useful when saving the description in local storage?
   saveButton.click(function() {
     if(this.id == 'btn9'){
-      if (hour9txt.value == '') {
-        alert('Nothing to save');
-      } else {
-        localStorage.setItem('hour9txt', hour9txt.value);
-      }
+      localStorage.setItem('hour9txt', hour9txt.value);
     } else if (this.id == 'btn10') {
-      if (hour10txt.value == '') {
-        alert('Nothing to save');
-      } else {
-        localStorage.setItem('hour10txt', hour10txt.value);
-      }
+      localStorage.setItem('hour10txt', hour10txt.value);
     } else if (this.id == 'btn11') {
-      if (hour11txt.value == '') {
-        alert('Nothing to save');
-      } else {
-        localStorage.setItem('hour11txt', hour11txt.value);
-      }
+      localStorage.setItem('hour11txt', hour11txt.value);
     } else if (this.id == 'btn12') {
-      if (hour12txt.value == '') {
-        alert('Nothing to save');
-      } else {
-        localStorage.setItem('hour12txt', hour12txt.value);
-      }
+      localStorage.setItem('hour12txt', hour12txt.value);
     } else if (this.id == 'btn13') {
-      if (hour13txt.value == '') {
-        alert('Nothing to save');
-      } else {
-        localStorage.setItem('hour13txt', hour13txt.value);
-      }
+      localStorage.setItem('hour13txt', hour13txt.value);
     } else if (this.id == 'btn14') {
-      hour14.attr(
-        'style',
-        'background-color: black'
-      )
+      localStorage.setItem('hour14txt', hour14txt.value);
     } else if (this.id == 'btn15') {
-      hour15.attr(
-        'style',
-        'background-color: gray'
-      )
+      localStorage.setItem('hour15txt', hour15txt.value);
     } else if (this.id == 'btn16') {
-      hour16.attr(
-        'style',
-        'background-color: teal'
-      )
+      localStorage.setItem('hour16txt', hour16txt.value);
     } else if (this.id == 'btn17') {
-      hour17.attr(
-        'style',
-        'background-color: maroon'
-      )
+      localStorage.setItem('hour17txt', hour17txt.value);
     }
   });
   //
@@ -80,18 +48,166 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
+  var currentTime = dayjs().format('H');
+
+  if(currentTime < 9) {
+    hour9.addClass('future');
+    hour10.addClass('future');
+    hour11.addClass('future');
+    hour12.addClass('future');
+    hour13.addClass('future');
+    hour14.addClass('future');
+    hour15.addClass('future');
+    hour16.addClass('future');
+    hour17.addClass('future');
+  } else if(currentTime == 9) {
+    hour9.removeClass('future');
+    hour9.addClass('present');
+    hour10.addClass('future');
+    hour11.addClass('future');
+    hour12.addClass('future');
+    hour13.addClass('future');
+    hour14.addClass('future');
+    hour15.addClass('future');
+    hour16.addClass('future');
+    hour17.addClass('future');
+  } else if(currentTime == 10) {
+    hour9.removeClass('present');
+    hour9.addClass('past');
+    hour10.removeClass('future');
+    hour10.addClass('present');
+    hour11.addClass('future');
+    hour12.addClass('future');
+    hour13.addClass('future');
+    hour14.addClass('future');
+    hour15.addClass('future');
+    hour16.addClass('future');
+    hour17.addClass('future');
+  } else if(currentTime == 11) {
+    hour9.addClass('past');
+    hour10.removeClass('present');
+    hour10.addClass('past');
+    hour11.removeClass('future');
+    hour11.addClass('present');
+    hour12.addClass('future');
+    hour13.addClass('future');
+    hour14.addClass('future');
+    hour15.addClass('future');
+    hour16.addClass('future');
+    hour17.addClass('future');
+  } else if(currentTime == 12) {
+    hour9.addClass('past');
+    hour10.addClass('past');
+    hour11.removeClass('present');
+    hour11.addClass('past');
+    hour12.removeClass('future');
+    hour12.addClass('present');
+    hour13.addClass('future');
+    hour14.addClass('future');
+    hour15.addClass('future');
+    hour16.addClass('future');
+    hour17.addClass('future');
+  } else if(currentTime == 13) {
+    hour9.addClass('past');
+    hour10.addClass('past');
+    hour11.addClass('past');
+    hour12.removeClass('present');
+    hour12.addClass('past');
+    hour13.removeClass('future');
+    hour13.addClass('present');
+    hour14.addClass('future');
+    hour15.addClass('future');
+    hour16.addClass('future');
+    hour17.addClass('future');
+  } else if(currentTime == 14) {
+    hour9.addClass('past');
+    hour10.addClass('past');
+    hour11.addClass('past');
+    hour12.addClass('past');
+    hour13.removeClass('present');
+    hour13.addClass('past');
+    hour14.removeClass('future');
+    hour14.addClass('present');
+    hour15.addClass('future');
+    hour16.addClass('future');
+    hour17.addClass('future');
+  } else if(currentTime == 15) {
+    hour9.addClass('past');
+    hour10.addClass('past');
+    hour11.addClass('past');
+    hour12.addClass('past');
+    hour13.addClass('past');
+    hour14.removeClass('present');
+    hour14.addClass('past');
+    hour15.removeClass('future');
+    hour15.addClass('present');
+    hour16.addClass('future');
+    hour17.addClass('future');
+  } else if(currentTime == 16) {
+    hour9.addClass('past');
+    hour10.addClass('past');
+    hour11.addClass('past');
+    hour12.addClass('past');
+    hour13.addClass('past');
+    hour14.addClass('past');
+    hour15.removeClass('present');
+    hour15.addClass('past');
+    hour16.removeClass('future');
+    hour16.addClass('present');
+    hour17.addClass('future');
+  } else if(currentTime == 17) {
+    hour9.addClass('past');
+    hour10.addClass('past');
+    hour11.addClass('past');
+    hour12.addClass('past');
+    hour13.addClass('past');
+    hour14.addClass('past');
+    hour15.addClass('past');
+    hour16.removeClass('present');
+    hour16.addClass('past');
+    hour17.removeClass('future');
+    hour17.addClass('present');
+  } else if(currentTime > 17) {
+    hour9.addClass('past');
+    hour10.addClass('past');
+    hour11.addClass('past');
+    hour12.addClass('past');
+    hour13.addClass('past');
+    hour14.addClass('past');
+    hour15.addClass('past');
+    hour16.addClass('past');
+    hour17.removeClass('present');
+    hour17.addClass('past');
+  }
+
+
+  // The below code gets any user input that was saved in localStorage and set
+  // the values of the corresponding textarea elements.
 render();
 
 function render() {
-  var text = localStorage.getItem('hour9txt');
+  var text9 = localStorage.getItem('hour9txt');
+  var text10 = localStorage.getItem('hour10txt');
+  var text11 = localStorage.getItem('hour11txt');
+  var text12 = localStorage.getItem('hour12txt');
+  var text13 = localStorage.getItem('hour13txt');
+  var text14 = localStorage.getItem('hour14txt');
+  var text15 = localStorage.getItem('hour15txt');
+  var text16 = localStorage.getItem('hour16txt');
+  var text17 = localStorage.getItem('hour17txt');
 
-  $("#hour9txt").text(text);
+  $("#hour9txt").text(text9);
+  $("#hour10txt").text(text10);
+  $("#hour11txt").text(text11);
+  $("#hour12txt").text(text12);
+  $("#hour13txt").text(text13);
+  $("#hour14txt").text(text14);
+  $("#hour15txt").text(text15);
+  $("#hour16txt").text(text16);
+  $("#hour17txt").text(text17);
 }
   
-  //
-  // TODO: Add code to display the current date in the header of the page.
+  // The below code displays the current date in the header of the page.
   currentDayEl.text(currentDay);
+  
 });
